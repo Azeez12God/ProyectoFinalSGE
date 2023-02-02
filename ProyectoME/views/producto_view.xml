@@ -1,0 +1,19 @@
+<odoo>
+    <record id="producto_model_action_window" model="ir.actions.act_window">
+        <field name="name">Productos YUMMY Ñam Ñam</field>
+        <field name="res_model">producto.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="producto_model_tree" model="ir.ui.view">
+		<field name="name">producto.model.tree</field>
+		<field name="model">producto.model</field>
+		<field name="arch" type="xml">
+			<tree>
+				<field name = "code"/>
+				<field name = "name"/>
+				<field name = "sale_price" widget = "monetary"/>
+			</tree>
+		</field>
+	</record>
+</odoo>
