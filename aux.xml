@@ -1,0 +1,98 @@
+<odoo>
+	<record id="agencia_model_action_window" model="ir.actions.act_window">
+		<field name="name">Inmuebles</field>
+		<field name="res_model">agencia.model</field>
+		<field name="view_mode">tree,form</field>
+	</record>
+
+	<record id="agencia_model_tree" model="ir.ui.view">
+		<field name="name">agencia.model.tree</field>
+		<field name="model">agencia.model</field>
+		<field name="arch" type="xml">
+
+			<tree>
+				<field name = "name"/>
+				<field name = "cpostal"/>
+				<field name = "habitaciones"/>
+				<field name = "precio_inicial" widget = "monetary"/>
+				<field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+			</tree>
+
+		</field>
+	</record>
+
+	<record id="agencia_model_form" model="ir.ui.view">
+		<field name="name">agencia.model.form</field>
+		<field name="model">agencia.model</field>
+		<field name="arch" type="xml">
+
+			<form>
+				<sheet>
+					<group>
+						<group name="group_left">
+							<field name="name"/>
+							<field name="cpostal"/>
+							<field name="habitaciones"/>
+							<field name="fecha_disponible"/>
+							<field name="orientacion"/>
+							<field name="m_utiles"/>
+							<field name="tag_ids" widget="many2many_tags" options="{'color_field': 'color'}"/>
+						</group>
+
+						<group name="group_right">
+							<field name="precio_inicial" widget="monetary"/>
+							<field name="precio_venta" widget="monetary"/>
+							<field name="fachadas"/>
+							<field name="garage" widget="boolean_toggle"/>
+							<field name="jardin" widget="boolean_toggle"/>
+							<field name="m_jardin"/>
+						</group>
+					</group>
+
+					<group>
+						<notebook>
+							<page string="Descripción">
+								<field name = "descripcion"/>
+							</page>
+							<page string="Datos de Compra - Venta">
+								<group>
+									<field name = "comercial" string = "Comercial"/>
+									<field name = "comprador" string = "Vendedor"/>
+								</group>
+							</page>
+						</notebook>
+					</group>
+
+				</sheet>
+			</form>
+
+		</field>
+	</record>
+
+	<record id="agencia_model_search" model="ir.ui.view">
+		<field name="name">agencia.model.search</field>
+		<field name="model">agencia.model</field>
+		<field name="arch" type="xml">
+			<search>
+				<field name="name"/>
+				<field name="cpostal"/>
+				<field name="habitaciones"/>
+				<field name="precio_inicial" widget="monetary"/>
+				<field name="garage"/>
+				<field name="jardin"/>
+				<separator/>
+				<filter string="Tiene garaje" name="garage" domain="[('garage', '=', True)]"/>
+				<filter string="Tiene jardín" name="jardin" domain="[('jardin', '=', True)]"/>
+				<group expand="1" string="Group By">
+					<filter string="Código Postal" name="cpostal" context="{'group_by':'cpostal'}"/>
+					<filter string="Orientación" name="orientacion" context="{'group_by':'orientacion'}"/>
+				</group>
+			</search>
+		</field>
+	</record>
+
+	<menuitem id="agencia_menu_root" name="Agencia Inmobiliaria" action="agencia_model_action_window"/>
+	<menuitem id="agencia_inicio_nivel1" parent="agencia_menu_root" name="Inmuebles"/>
+	<menuitem id="agencia_inicio_menu1" parent="agencia_inicio_nivel1" name="Viviendas" action="agencia_model_action_window" sequence="1"/>
+
+</odoo>

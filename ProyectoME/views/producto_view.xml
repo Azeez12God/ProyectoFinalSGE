@@ -2,7 +2,7 @@
     <record id="producto_model_action_window" model="ir.actions.act_window">
         <field name="name">Productos YUMMY Ñam Ñam</field>
         <field name="res_model">producto.model</field>
-        <field name="view_mode">tree,form</field>
+        <field name="view_mode">kanban,form</field>
     </record>
 
     <record id="producto_model_tree" model="ir.ui.view">
@@ -16,4 +16,19 @@
 			</tree>
 		</field>
 	</record>
+
+	<!--<record id="producto_model_kanban" model="ir.ui.view">
+		<field name="name">producto.model.kanban</field>
+		<field name="model">producto.model</field>
+		<field name="arch" type="xml">
+			<kanban>
+				<field name="name"/>
+				<field name="code"/>
+			</kanban>
+		</field>
+	</record>-->
+
+	<menuitem id="productos_menu_root" name="Máquinas Expendedoras" action="producto_model_action_window"/>
+	<menuitem id="productos_inicio_nivel1" parent="productos_menu_root" name="Productos"/>
+	<menuitem id="productos_inicio_nivel2" parent="productos_inicio_nivel1" name="Caca" action="producto_model_action_window"/>
 </odoo>
