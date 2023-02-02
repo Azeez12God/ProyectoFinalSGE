@@ -14,6 +14,6 @@ class ProductoModel(models.Model):
 	sale_price = fields.Float(string='Precio de venta', required=True)
 	image = fields.Binary(string='Imagen')
 	stock = fields.Float(string='Stock', required=True)
-	#supplier = fields.Many2One('res.partner', string='Proveedor')
+	# supplier = fields.Many2One('res.partner', string='Proveedor')
 	state = fields.Selection([('available', 'Disponible'), ('sold_out', 'Agotado'), ('on_the_way', 'En camino')],
 							string='Estado', required=True, default='available')
