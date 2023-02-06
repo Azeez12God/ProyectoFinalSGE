@@ -1,5 +1,6 @@
 from odoo import models, fields
 
+
 class VentasModel(models.Model):
 	_name = 'ventas.model'
 

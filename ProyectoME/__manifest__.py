@@ -2,8 +2,8 @@
 	'name': "máquinas_expendedoras",
 	'author': "Alberto López Gil y Javier Escolástico Egido Luz",
 	'version': '1.0',
-	'summary': 'Módulo que permite gestionar el inventario de una máquina expendedora, permitiendo reabastecer los productos.',
-	'Description': 'Módulo que permite gestionar el inventario de una máquina expendedora, permitiendo reabastecer los productos.',
+	'summary': 'Gestión de máquinas expendedoras.',
+	'Description': 'Gestión de máquinas expendedoras.',
 
 	'category': 'Generic Modules/Others',
 	'website': 'http://www.modules/Others',
