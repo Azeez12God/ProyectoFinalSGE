@@ -15,6 +15,7 @@
 	'data': [
 		'security/ir.model.access.csv',
 		'views/producto_view.xml',
+		'views/ventas_view.xml'
 	],
 	# data files containing optionally loaded demonstration data
 
