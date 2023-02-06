@@ -1,0 +1,45 @@
+<odoo>
+    <record id="ventas_model_action_window" model="ir.actions.act_window">
+        <field name="name">Ventas de DROGA</field>
+        <field name="res_model">ventas.model</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="ventas_model_form_view" model="ir.ui.view">
+        <field name="name">ventas.model.form</field>
+        <field name="model">ventas.model</field>
+        <field name="type">form</field>
+        <field name="arch" type="xml">
+            <form>
+                <header>
+                    <button name="action_back" string="Back" type="object" class="oe_highlight" icon="fa-arrow-left"/>
+                    <field name="name"/>
+                    <field name="date"/>
+                </header>
+                <sheet>
+                    <group>
+                        <field name="client"/>
+                        <field name="product_id"/>
+                        <field name="total"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="ventas_model_tree_view" model="ir.ui.view">
+        <field name="name">ventas.model.tree</field>
+        <field name="model">ventas.model</field>
+        <field name="type">tree</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="date"/>
+                <field name="client"/>
+                <field name="product_id"/>
+                <field name="total"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>
