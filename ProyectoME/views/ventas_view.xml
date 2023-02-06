@@ -11,11 +11,11 @@
         <field name="type">form</field>
         <field name="arch" type="xml">
             <form>
-                <header>
+                <!--<header>
                     <button name="action_back" string="Back" type="object" class="oe_highlight" icon="fa-arrow-left"/>
                     <field name="name"/>
                     <field name="date"/>
-                </header>
+                </header>-->
                 <sheet>
                     <group>
                         <field name="client"/>
