@@ -42,4 +42,5 @@
         </field>
     </record>
 
+    <menuitem id="ventas_inicio_nivel2" parent="productos_inicio_nivel1" name="Ventas realizadas" action="ventas_model_action_window"/>
 </odoo>
