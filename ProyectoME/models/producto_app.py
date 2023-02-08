@@ -10,7 +10,7 @@ class ProductoModel(models.Model):
 	code = fields.Char('Código', required=True)
 	description = fields.Text('Descripción', help='Introduce una descripción de la propiedad')
 	category = fields.Selection([('salado', 'Salado'), ('dulce', 'Dulce'), ('bebida', 'Bebida'), ('varios', 'Varios')],
-								string='Categoría')  # TODO posible eliminación
+	                            string='Categoría')  # TODO posible eliminación
 	sale_price = fields.Float(string='Precio de venta', required=True)
 	image = fields.Binary(string='Imagen')
 	stock = fields.Float(string='Stock', required=True)

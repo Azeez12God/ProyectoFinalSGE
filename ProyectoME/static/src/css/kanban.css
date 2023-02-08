@@ -1,0 +1,48 @@
+.div_ext {
+    border-radius:15px;
+}
+
+.container_div {
+    display:inline-block;
+}
+
+.image_div {
+    /*background-image: url("/web/image/producto.model/1/image");*/
+    width: 80px;
+    height: 80px;
+    background-size: 80px;
+}
+
+.hay_text {
+    color: blue;
+}
+/*
+style="background-color:#00438a;color:#fff;
+
+<template id="basic_template">
+	<div>
+		<span><field name="field_1"/></span>
+		<span><field name="field_2"/></span>
+	</div>
+</template>
+
+<!-- Vista kanban que hereda la plantilla básica -->
+<record id="producto_model_kanban" model="ir.ui.view">
+    <field name="name">producto.model.kanban</field>
+    <field name="model">producto.model</field>
+    <field name="arch" type="xml">
+        <kanban class="o_res_partner_kanban" create="true">
+            <templates>
+                <t t-name="kanban-box">
+                    <link rel="stylesheet" href="/ProyectoME/static/src/css/kanban.css"/>
+                    <t t-extend="basic_template">
+                        <t t-jquery="span" t-operation="replace">
+                            <span style="display:block;">Nombre:<field name="name" /></span>
+                        </t>
+                    </t>
+                </t>
+            </templates>
+        </kanban>
+    </field>
+</record>
+*/
