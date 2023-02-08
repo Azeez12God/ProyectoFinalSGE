@@ -13,23 +13,26 @@
 				<templates>
 					<t t-name="kanban-box">
 						<div class="oe_kanban_global_click o_res_partner_kanban"
-						style="color:blue; display:inline-block">
+						style="color:blue; display: flex; flex-direction: row;">
 
 							<div style="height: 80px; width: 80px;
 							background-image: url(/web/image/producto.model/1/image);
 							background-repeat: no-repeat;
 							background-size: cover;
 							background-position: center;
-							border: 1px solid black">
+							margin-right: 10px;">
 
 							</div>
 
-							<div class="oe_kanban_details" style="border: 1px solid black">
+							<div class="oe_kanban_details" style="
+							width: 50%;
+							display: flex;
+							flex-direction: column;">
 								<div class="o_kanban_record_title oe_partner_heading">
-									<span style="display:block;">Nombre: <field name="name" /></span>
+									<span>Nombre: <field name="name" /></span>
 								</div>
-								<span style="display:block;">Precio: <field name="sale_price" /></span>
-								<span style="display:block;">Stock: <field name="stock" /></span>
+								<span>Precio: <field name="sale_price" /></span>
+								<span>Stock: <field name="stock" /></span>
 							</div>
 						</div>
 					</t>
