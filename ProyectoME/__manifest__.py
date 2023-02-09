@@ -1,5 +1,5 @@
 {
-	'name': "máquinas_expendedoras",
+	'name': "Máquinas Expendedoras",
 	'author': "Alberto López Gil y Javier Escolástico Egido Luz",
 	'version': '1.0',
 	'summary': 'Gestión de máquinas expendedoras.',

@@ -1,6 +1,6 @@
 <odoo>
     <record id="compra_model_action_window" model="ir.actions.act_window">
-        <field name="name">Compra de DROGA</field>
+        <field name="name">Compras</field>
         <field name="res_model">compra.model</field>
         <field name="view_mode">tree,form</field>
     </record>

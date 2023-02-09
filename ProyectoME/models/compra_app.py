@@ -1,6 +1,7 @@
 from odoo import models, fields, api
 from odoo.exceptions import UserError
 
+
 class CompraModel(models.Model):
 	_name = 'compra.model'
 

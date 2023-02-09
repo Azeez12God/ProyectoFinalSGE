@@ -1,6 +1,6 @@
 <odoo>
     <record id="producto_model_action_window" model="ir.actions.act_window">
-        <field name="name">Productos YUMMY Ñam Ñam</field>
+        <field name="name">Inventario de Productos</field>
         <field name="res_model">producto.model</field>
         <field name="view_mode">kanban,form</field>
     </record>
@@ -10,18 +10,15 @@
 		<field name="model">producto.model</field>
 		<field name="arch" type="xml">
 			<kanban class="o_res_partner_kanban" create="true">
+				<field name="image" widget="image"/>
 				<templates>
 					<t t-name="kanban-box">
 						<div class="oe_kanban_global_click o_res_partner_kanban"
-						style="color:blue; display: flex; flex-direction: row;">
-
-							<div style="height: 80px; width: 80px;
-							background-image: url(/web/image/producto.model/1/image);
-							background-repeat: no-repeat;
-							background-size: cover;
-							background-position: center;
+						style="display: flex; flex-direction: row;">
+							<div style="width: 30%; height: 80%;
+							padding: 5px;
 							margin-right: 10px;">
-
+								<field name="image" nolabel="1" widget="image"/>
 							</div>
 
 							<div class="oe_kanban_details" style="
@@ -41,28 +38,58 @@
 		</field>
 	</record>
 
-	<menuitem id="productos_menu_root" name="Máquinas Expendedoras" action="producto_model_action_window"/>
-	<menuitem id="productos_inicio_nivel1" parent="productos_menu_root" name="Productos"/>
-	<menuitem id="productos_inicio_nivel2" parent="productos_inicio_nivel1" name="Inventario" action="producto_model_action_window"/>
-</odoo>
-
-<!--
-<odoo>
-    <record id="producto_model_action_window" model="ir.actions.act_window">
-        <field name="name">Productos YUMMY Ñam Ñam</field>
-        <field name="res_model">producto.model</field>
-        <field name="view_mode">tree,form</field>
-    </record>
-
-   <record id="producto_model_tree" model="ir.ui.view">
-		<field name="name">producto.model.tree</field>
+	<record id="product_model_form" model="ir.ui.view">
+		<field name="name">producto.model.form</field>
 		<field name="model">producto.model</field>
 		<field name="arch" type="xml">
-			<kanban>
-				<field name = "image"/>
-				<field name = "name"/>
-				<field name = "sale_price" widget = "monetary"/>
-			</kanban>
+			<form>
+				<sheet>
+					<group>
+						<group name="group_left">
+							<field name="name"/>
+							<field name="code"/>
+							<field name="category"/>
+							<field name="image" widget="image" style="width: 30%; height: 30%;"/>
+						</group>
+
+						<group name="group_right">
+							<field name="sale_price" widget="monetary"/>
+							<field name="stock"/>
+							<field name="state"/>
+						</group>
+					</group>
+
+					<group>
+						<notebook>
+							<page string="Descripción">
+								<field name = "description"/>
+							</page>
+							<page string="Datos de Compra">
+								<field name = "compras" string = "Compras"/>
+							</page>
+						</notebook>
+					</group>
+				</sheet>
+			</form>
+		</field>
+	</record>
+
+	<record id="producto_model_search" model="ir.ui.view">
+		<field name="name">producto.model.search</field>
+		<field name="model">producto.model</field>
+		<field name="arch" type="xml">
+			<search>
+				<field name="name"/>
+				<field name="code"/>
+				<field name="stock"/>
+				<separator/>
+				<filter string="Tiene Stock" name="stock" domain="[('stock', '>', 0)]"/>
+				<filter string="No Tiene Stock" name="stock" domain="[('stock', '=', 0)]"/>
+				<group expand="1" string="Group By">
+					<filter string="Categoría" name="category" context="{'group_by':'category'}"/>
+					<filter string="Estado" name="state" context="{'group_by':'state'}"/>
+				</group>
+			</search>
 		</field>
 	</record>
 
@@ -70,24 +97,3 @@
 	<menuitem id="productos_inicio_nivel1" parent="productos_menu_root" name="Productos"/>
 	<menuitem id="productos_inicio_nivel2" parent="productos_inicio_nivel1" name="Inventario" action="producto_model_action_window"/>
 </odoo>
--->
-
-<!--
-<xpath expr="." position="inside">
-						<link rel="stylesheet" href="../static/src/css/kanban.css"/>
-						<t t-name="kanban-box">
-							<div class="oe_kanban_global_click o_res_partner_kanban div_ext">
-								<div class="oe_kanban_details container_div">
-									<div class="o_kanban_record_title oe_partner_heading image_div">
-										<span style="display:block;">Nombre:<field name="name" /></span>
-									</div>
-									<span style="display:block;">Nombre:<field name="name" /></span>
-									<span style="display:block;">Nombre:<field name="name" /></span>
-								</div>
-							</div>
-						</t>
-					</xpath>
-					<div class="oe_kanban_global_click o_res_partner_kanban">
-
-					</div>
--->

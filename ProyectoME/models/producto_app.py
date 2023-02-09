@@ -13,7 +13,7 @@ class ProductoModel(models.Model):
 	                            string='Categoría')  # TODO posible eliminación
 	sale_price = fields.Float(string='Precio de venta', required=True)
 	image = fields.Binary(string='Imagen')
-	stock = fields.Float(string='Stock', required=True)
+	stock = fields.Integer(string='Stock', required=True)
 	# supplier = fields.Many2One('res.partner', string='Proveedor')
 	state = fields.Selection([('available', 'Disponible'), ('sold_out', 'Agotado'), ('on_the_way', 'En camino')],
 	                         string='Estado', required=True, default='available')
