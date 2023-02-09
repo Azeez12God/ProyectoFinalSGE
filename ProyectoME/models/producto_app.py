@@ -17,4 +17,4 @@ class ProductoModel(models.Model):
 	# supplier = fields.Many2One('res.partner', string='Proveedor')
 	state = fields.Selection([('available', 'Disponible'), ('sold_out', 'Agotado'), ('on_the_way', 'En camino')],
 	                         string='Estado', required=True, default='available')
-	compras = fields.Many2many('compra.model', string='Compras')
+	compras = fields.Many2many('compra.model', string='Compras', through='compra.producto.model')

@@ -21,7 +21,7 @@
                         <field name="name"/>
                         <field name="date"/>
                         <field name="client"/>
-                        <field name="productos"/>
+                        <field name="producto"/>
                         <field name="cantidad"/>
                         <field name="total" widget="monetary"/>
                     </group>
@@ -39,7 +39,7 @@
                 <field name="name"/>
                 <field name="date"/>
                 <field name="client"/>
-                <field name="productos"/>
+                <field name="producto"/>
                 <field name="cantidad"/>
                 <field name="total" widget="monetary"/>
             </tree>
