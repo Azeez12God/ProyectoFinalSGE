@@ -16,4 +16,5 @@ class ProductoModel(models.Model):
 	stock = fields.Float(string='Stock', required=True)
 	# supplier = fields.Many2One('res.partner', string='Proveedor')
 	state = fields.Selection([('available', 'Disponible'), ('sold_out', 'Agotado'), ('on_the_way', 'En camino')],
-							string='Estado', required=True, default='available')
+	                         string='Estado', required=True, default='available')
+	compras = fields.Many2many('compra.model', string='Compras')
