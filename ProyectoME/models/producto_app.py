@@ -14,7 +14,6 @@ class ProductoModel(models.Model):
 	sale_price = fields.Float(string='Precio de venta', required=True)
 	image = fields.Binary(string='Imagen')
 	stock = fields.Integer(string='Stock', required=True)
-	# supplier = fields.Many2One('res.partner', string='Proveedor')
 	state = fields.Selection([('available', 'Disponible'), ('sold_out', 'Agotado'), ('running_out', 'Escaso')], string='Estado', required=True, default='available')
 	compras = fields.Many2many('compra.model', string='Compras', through='compra.producto.model')
 	inventory_percentage = fields.Float(string='Porcentaje de inventario restante', compute='_compute_inventory_percentage')
