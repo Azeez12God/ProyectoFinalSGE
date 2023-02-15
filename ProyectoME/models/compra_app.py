@@ -33,7 +33,7 @@ class CompraModel(models.Model):
 		record = super(CompraModel, self).create(vals)
 		producto = self.env['producto.model'].browse(vals['producto'])
 		producto.stock -= vals['cantidad']
-		if producto.stock < 5:
+		if producto.stock < 10:
 			producto.state = 'running_out'
 		if producto.stock == 0:
 			producto.state = 'sold_out'

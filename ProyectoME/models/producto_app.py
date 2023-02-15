@@ -50,7 +50,7 @@ class ProductoModel(models.Model):
 		for record in self:
 			if record.stock == 0:
 				record.state = 'sold_out'
-			elif record.stock < 5:
+			elif record.stock < 10:
 				record.state = 'running_out'
 			else:
 				record.state = 'available'
