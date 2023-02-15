@@ -26,10 +26,11 @@
 							display: flex;
 							flex-direction: column;">
 								<div class="o_kanban_record_title oe_partner_heading">
-									<span>Nombre: <field name="name" /></span>
+									<span><field name="name" /></span>
 								</div>
-								<span>Precio: <field name="sale_price" /></span>
-								<span>Stock: <field name="stock" /></span>
+								<span>Precio: <field name="sale_price" /> €</span>
+								<span>Stock:  <field name="stock" /></span>
+								<span>Código: <field name="code" /></span>
 							</div>
 						</div>
 					</t>
@@ -43,11 +44,15 @@
 		<field name="model">producto.model</field>
 		<field name="arch" type="xml">
 			<form>
+				<header>
+					<button name="restock" string="Reabastecer" type="object" class="oe_highlight"/>
+					<field name="inventory_percentage" widget="progressbar" options='{"color": "success"}'/>
+        		</header>
 				<sheet>
 					<group>
 						<group name="group_left">
+							<field name="code" readonly="1"/>
 							<field name="name"/>
-							<field name="code"/>
 							<field name="category"/>
 							<field name="image" widget="image" style="width: 30%; height: 30%;"/>
 						</group>

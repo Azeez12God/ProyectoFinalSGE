@@ -18,12 +18,16 @@
                 </header>-->
                 <sheet>
                     <group>
-                        <field name="name"/>
-                        <field name="date"/>
-                        <field name="client"/>
-                        <field name="producto"/>
-                        <field name="cantidad"/>
-                        <field name="total" widget="monetary"/>
+                        <group name="group_left">
+                            <field name="name"/>
+                            <field name="date"/>
+                            <field name="client"/>
+                        </group>
+                        <group name="group_right">
+                            <field name="producto"/>
+                            <field name="cantidad"/>
+                            <field name="total" widget="monetary"/>
+                        </group>
                     </group>
                 </sheet>
             </form>

@@ -7,10 +7,9 @@ class ProductoModel(models.Model):
 
 	# Campos básicos
 	name = fields.Char('Nombre', required=True)
-	code = fields.Char('Código', required=True)
+	code = fields.Integer('Código', default=lambda self: self._generate_code())
 	description = fields.Text('Descripción', help='Introduce una descripción de la propiedad')
-	category = fields.Selection([('salado', 'Salado'), ('dulce', 'Dulce'), ('bebida', 'Bebida'), ('varios', 'Varios')],
-	                            string='Categoría')  # TODO posible eliminación
+	category = fields.Selection([('salado', 'Salado'), ('dulce', 'Dulce'), ('bebida', 'Bebida'), ('varios', 'Varios')], string='Categoría')
 	sale_price = fields.Float(string='Precio de venta', required=True)
 	image = fields.Binary(string='Imagen')
 	stock = fields.Integer(string='Stock', required=True)
