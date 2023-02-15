@@ -50,5 +50,17 @@
         </field>
     </record>
 
+    <record id="compra_model_search" model="ir.ui.view">
+		<field name="name">compra.model.search</field>
+		<field name="model">compra.model</field>
+		<field name="arch" type="xml">
+			<search>
+				<field name="total"/>
+				<separator/>
+                <filter string="Total mayor que 1000" name="total" domain="[('total', '>', 1000)]"/>
+			</search>
+		</field>
+	</record>
+
     <menuitem id="compra_inicio_nivel2" parent="productos_inicio_nivel1" name="Compras realizadas" action="compra_model_action_window"/>
 </odoo>

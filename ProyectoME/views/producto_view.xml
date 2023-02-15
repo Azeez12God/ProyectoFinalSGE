@@ -60,7 +60,7 @@
 						<group name="group_right">
 							<field name="sale_price" widget="monetary"/>
 							<field name="stock"/>
-							<field name="state"/>
+							<field name="state" readonly="1"/>
 						</group>
 					</group>
 

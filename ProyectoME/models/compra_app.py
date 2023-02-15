@@ -6,9 +6,9 @@ class CompraModel(models.Model):
 	_name = 'compra.model'
 
 	name = fields.Char(string='Nombre', required=True)
-	date = fields.Date(string='Fecha de venta', default=fields.Date.today)
+	date = fields.Date(string='Fecha de compra', default=fields.Date.today)
 	client = fields.Many2one('res.users', string='Cliente', required=True)
-	total = fields.Float(string='Total de la venta', store=True, compute='_precio_total')
+	total = fields.Float(string='Total de la compra', store=True, compute='_precio_total')
 	producto = fields.Many2one('producto.model', string='Producto', required=True)
 	cantidad = fields.Integer(string='Cantidad productos', required=True)
 
@@ -33,4 +33,14 @@ class CompraModel(models.Model):
 		record = super(CompraModel, self).create(vals)
 		producto = self.env['producto.model'].browse(vals['producto'])
 		producto.stock -= vals['cantidad']
+		if producto.stock < 5:
+			producto.state = 'running_out'
+		if producto.stock == 0:
+			producto.state = 'sold_out'
 		return record
+
+	@api.constrains('date')
+	def _check_date(self):
+		for record in self:
+			if record.date < fields.Date.today():
+				raise UserError("La fecha de compra no puede ser menor a la fecha actual.")
